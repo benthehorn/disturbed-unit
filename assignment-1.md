@@ -22,7 +22,8 @@
 
 ---
 
-4. 
+4. In the following lines we will walk through the code, explaining what it does:
+
 import os
 > import os is a python module that enables us to use os dependent functionality. http://www.pythonforbeginners.com/os/pythons-os-module
 
@@ -41,13 +42,15 @@ import statistics
 import matplotlib
 > import matplotlib is a plotting library for python, for making graphs, for example (prices.png)
 > import matplotlib.pyplot as plt extends the functionality of the plotter.
+
 ```
 def download_txt(url, save_path='./downloaded'):
     response = requests.get(url)
     with open(save_path, 'wb') as f:
         f.write(response.content)
 ```
-
+> The download_txt is a function which takes two parameters. We can tell that actually only one parameter is needed to invoke the function, since the save_path parameter has a default value bound to it, if not specified otherwise.
+The function sends out a Get request to a specified URL, and assigns the response into the, well, response variable. Using the open() method, we're accessing the URL's response, and with the specified download filepath and open-mode _wb_, being _write_ and _binary_. So we're opening the file in binary + writing mode, and assigning this writer to the f variable. The function ends off with calling the write() method, generating the content to the file in the /downloaded folder.
 ```
 def generate_csv(txt_input_path, csv_output_path):
     with open(txt_input_path, encoding='utf-8') as f:
