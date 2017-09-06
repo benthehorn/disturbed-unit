@@ -75,7 +75,11 @@ def generate_csv(txt_input_path, csv_output_path):
         for row in rows:
             output_writer.writerow(row)
 ```
+> The generate_csv is another function with nothing magical over it. It's quite simple a function that generates a comma separated values (CSV) file based on an input_path (to a text file of some sort), and an output_path (now in csv format). Using the open() method to read the existing file, UTF-8 encoded, and assigning it to the txt_content variable.
 
+> A for-loop is now being used to iterate over each line from the file, converting it into csv format. Then there's a check for what operating system is in use since it has an affect on how new lines are written programmatically.
+
+> Lastly we're using the open() method once more, but this time to write to the new file. We give the method our desired parameters, and the output writer now iterates all the rows / lines from our newly converted content, generating a csv file.
 ```
 def read_prices(csv_input_path):
     with open(csv_input_path, encoding='utf-8') as f:
