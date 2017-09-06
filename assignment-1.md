@@ -9,6 +9,9 @@
     1. **price_list.csv**
     1. **prices.png**
     
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+    
 ---
     
 2. The aforementioned two files is a **comma separated values** file, and an **image** (portable networks graphics).
