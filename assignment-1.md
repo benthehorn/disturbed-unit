@@ -23,3 +23,21 @@
 ---
 
 4. 
+import os
+> import os is a python modeul that enables us to use os dependent functionality. http://www.pythonforbeginners.com/os/pythons-os-module
+
+import csv
+> import csv enables us to read and write csv files, as well as many other functions
+
+import requests
+> import requests allows us to make easy http requests 
+
+import platform
+> import platform allows us to access the underlying platforms data, such as, hardware and os.
+
+import statistics
+> import statistics helps us to create statistics. Features include mean, median, mode, standard deviation and variance.
+
+import matplotlib
+> import matplotlib is a plotting library for python, for making graphs, for example. (prices.png)
+> import matplotlib.pyplot as plt extends the functionality of the plotter.
