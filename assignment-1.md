@@ -13,6 +13,10 @@
     
 2. The aforementioned two files is a **comma separated values** file, and an **image** (portable networks graphics).
 
+---
+
 3. **3307228.119047619** (which is what?)
+
+---
 
 4. 
