@@ -95,7 +95,12 @@ def read_prices(csv_input_path):
 
     return list(zip(idxs, prices))
 ```
+> The read_prices function takes the csv file and extracts the price and row number from
+each row in the file, by using the open method and the the reader to read from the file.
 
+> Next, for each row, it adds the price and line number to two arrays.
+Finally, it returns a list of the total number of houses for sale, with the total
+amount of their sale prices, for each postal number.
 ```
 def compute_avg_price(data):
     _, prices = zip(*data)
@@ -106,7 +111,15 @@ def compute_avg_price(data):
 
     return avg_price
 ```
+> The compute_avg-price function now takes the data from the previous function
+and gets the prices from the data.
 
+> Next using statistics.mean, it calculates the average price of houses for sale 
+in a postal number by taking the total number of prices and dividing the total 
+price by that number.
+
+> So 10 prices at 1000000 DKK would give an average of 1000000 DKK, for a particular 
+postal number.
 ```
 def generate_plot(data):
     x_values, y_values = zip(*data)
@@ -114,7 +127,19 @@ def generate_plot(data):
     plt.scatter(x_values, y_values, s=100)
     fig.savefig('./prices.png', bbox_inches='tight')
 ```
+> The generate_plot function is used to generate the position of each dot on the 
+prices.png graph.
 
+> The first line makes the x position and y position for each dot, taking the data from 
+each dataset in the passed in data.
+
+> The plt.scatter method takes each x and y dot and implants it into the graph, using 
+a dividing factor of 100, so that we have two less zeros in the x and y axis on the 
+graph. So postal numbers are displayed 0 - 49, and prices are displayed minus the same
+factor.
+
+> The fig.save line then saves the data and creates the ./prices.png file, while the 
+bbox_inches='tight' parameter removes any white space from around the figure/graph.
 ```
 def run():
     file_url = 'https://raw.githubusercontent.com/datsoftlyngby/' \
