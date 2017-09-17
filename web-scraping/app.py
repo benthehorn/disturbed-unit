@@ -27,6 +27,22 @@ for a in a_tags:
     else:
         continue
 
+    def save_to_csv(data, path='./out/boliga.csv'):
+        with open(path, 'w', encoding='utf-8') as output_file:
+            output_writer = csv.writer(output_file)
+            output_writer.writerow(['street', 'city', 'zipcode',
+                                    'no_rooms', 'size_in_sq_m',
+                                    'year_of_construction', 'price',
+                                    'sale_date_str'])
+
+            for row in data:
+                output_writer.writerow(row)
+
+
+    out_dir = './data/out'
+    if not os.path.exists(out_dir):
+        os.mkdir(out_dir)
+
 #
 # # print(soup.prettify())
 # print(type(elems))
@@ -106,21 +122,7 @@ for a in a_tags:
 # housing_data[:3]
 #
 #
-# def save_to_csv(data, path='./out/boliga.csv'):
-#     with open(path, 'w', encoding='utf-8') as output_file:
-#         output_writer = csv.writer(output_file)
-#         output_writer.writerow(['street', 'city', 'zipcode',
-#                                 'no_rooms', 'size_in_sq_m',
-#                                 'year_of_construction', 'price',
-#                                 'sale_date_str'])
-#
-#         for row in data:
-#             output_writer.writerow(row)
-#
-#
-# out_dir = './data/out'
-# if not os.path.exists(out_dir):
-#     os.mkdir(out_dir)
+
 #
 # base_url = 'http://127.0.0.1:8888/files/data'
 # urls = ['boliga_1050-1549_1.html', 'boliga_1050-1549_2.html', 'boliga_1550-1799_1.html']
