@@ -1,0 +1,5 @@
+# Decode sales date and type
+        string = cols[2].text.strip()
+        array = re.split(r'([A-Za-z\s.]+)', string)
+        sell_date = array[0]
+        sell_type = array[1]
