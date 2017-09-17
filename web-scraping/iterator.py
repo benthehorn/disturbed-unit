@@ -28,11 +28,12 @@ URLendings = []
 soup = bs4.BeautifulSoup(Page, "html5lib")
 table = soup.find_all("a")
 
+Complete = []
 for t in table:
     URLendings.append(t.get('href'))
     num = len(URLendings)
-    print(t.get('href'))
-    print(num)
+    #print(t.get('href'))
+    #print(num)
 
     for url in URLendings[5:]:
         full = Url + '/' + url
@@ -44,17 +45,20 @@ for t in table:
         table1 = soup1.find("table")
         body = table1.find('tbody')
         rows = body.find_all('tr')
-
         for row in rows:
 
             cols = row.find_all('td')
-        # Decode address column
+            # Decode address column
             address_str = cols[0].text.strip()
             zip_number = str(get_num(address_str))[-4:]
             address = address_str.split(zip_number)
             fulladdress = address[0] + ' ' + address[1]
+            #print(fulladdress)
+            #print(zip_number)
+
+
+            Complete.append([fulladdress, zip_number])
+            print(len(Complete))
 
 
 
-            print(fulladdress)
-            print(zip_number)

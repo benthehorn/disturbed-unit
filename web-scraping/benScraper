@@ -8,6 +8,9 @@ FullUrl = 'http://138.197.184.35/boliga/1050-1549_1.html'
 Page = urlopen(Url)
 Page1 = urlopen(FullUrl)
 
+
+def get_num(x):
+    return int(''.join(ele for ele in x if ele.isdigit()))
 # we can use this to write each csv file, by changing some of the parameters..I think
 def save_to_csv(data, path='./out/boliga.csv'):
     with open(path, 'w', encoding='utf-8') as output_file:
@@ -20,42 +23,38 @@ def save_to_csv(data, path='./out/boliga.csv'):
             output_writer.writerow(row)
 
 
-# URLendings = [];
-# soup = bs4.BeautifulSoup(Page, "html5lib")
-# table = soup.find_all("a")
-#
-# for t in table:
-#     URLendings.append(t.get('href'))
-#     num = len(URLendings)
-#     print(t.get('href'))
-#     print(num)
+URLendings = []
+soup = bs4.BeautifulSoup(Page, "html5lib")
+table = soup.find_all("a")
 
-Info = [];
-soup1 = bs4.BeautifulSoup(Page1, "html5lib")
-table1 = soup1.find("table")
-body = table1.find('tbody')
-rows = body.find_all('tr')
+for t in table:
+    URLendings.append(t.get('href'))
+    num = len(URLendings)
+    print(t.get('href'))
+    print(num)
 
-for row in rows:
-    def get_num(x):
-        return int(''.join(ele for ele in x if ele.isdigit()))
-    cols = row.find_all('td')
-    # Decode address column
-    address_str = cols[0].text.strip()
-    zip_number = str(get_num(address_str))[-4:]
-    address = address_str.split(zip_number);
-    fulladdress = address[0] + ' ' + address[1]
+    for url in URLendings:
+        soup1 = bs4.BeautifulSoup(Page + '/' + url, "html5lib")
 
+        # Info = [];
+        # soup1 = bs4.BeautifulSoup(Page1, "html5lib")
+        table1 = soup1.find("table")
+        body = table1.find('tbody')
+        rows = body.find_all('tr')
 
+        for row in rows:
 
-    print(fulladdress)
-    print(zip_number)
+            cols = row.find_all('td')
+        # Decode address column
+                address_str = cols[0].text.strip()
+        zip_number = str(get_num(address_str))[-4:]
+        address = address_str.split(zip_number)
+        fulladdress = address[0] + ' ' + address[1]
 
 
 
+        print(fulladdress)
+        print(zip_number)
 
-# for d in data1:
-#     h = d.find('h5')
-#     Info.append(h)
-#     print(Info)
+
 
