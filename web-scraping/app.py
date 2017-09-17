@@ -1,21 +1,19 @@
-import os
-import csv
 import bs4
 import re
 import requests
 
-# Sending a request to the specified URL:
-r = requests.get('http://138.197.184.35/boliga/')
 
-# Make sure we get notified in case of a bad request:
-if r is None:
-    r.raise_for_status()
-
-# Save the content from the Response Object:
-soup = bs4.BeautifulSoup(r.text, 'html5lib')
-
-# Isolating all the a-tags to scrape:
-a_tags = soup.find_all('a')
+def connect_and_retrieve_boliga_atags(url):
+    # Sending a request to the specified URL:
+    r = requests.get(url)
+    # Make sure we get notified in case of a bad request:
+    if r is None:
+        r.raise_for_status()
+    # Save the content from the Response Object:
+    soup = bs4.BeautifulSoup(r.text, 'html5lib')
+    # Isolating all the a-tags to scrape:
+    a_tags = soup.find_all('a')
+    return a_tags
 
 
 # Returning the hrefs alone, filtered (must start with a number if it's a zip code):
@@ -29,3 +27,13 @@ def sort_hrefs(tags):
         else:
             continue
     return hrefs
+
+
+def run():
+    tags = connect_and_retrieve_boliga_atags('http://138.197.184.35/boliga/')
+    urls = sort_hrefs(tags)
+    print(urls[:20])
+
+
+if __name__ == '__main__':
+    run()
