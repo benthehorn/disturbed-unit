@@ -37,21 +37,21 @@ body = table1.find('tbody')
 rows = body.find_all('tr')
 
 for row in rows:
+    def get_num(x):
+        return int(''.join(ele for ele in x if ele.isdigit()))
     cols = row.find_all('td')
     # Decode address column
     address_str = cols[0].text.strip()
-    street_str = ' '.join(address_str.split(' ')[:-2])
-    numbers = (address_str.split(' ')[-2])
-    house_number = numbers[:-4]
-    zip_number = numbers[-4:]
-    city_str = ' '.join(address_str.split(' ')[-1:])
-    address = street_str + ' ' + house_number
-    splitted = re.findall('\d{4,}', address_str)
-    splitstring = str(splitted)
+    zip_number = str(get_num(address_str))[-4:]
+    address = address_str.split(zip_number);
+    fulladdress = address[0] + ' ' + address[1]
 
-    print(splitted)
 
-    print(zip)
+
+    print(fulladdress)
+    print(zip_number)
+
+
 
 
 # for d in data1:
