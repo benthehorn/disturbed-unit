@@ -1,23 +1,37 @@
+import os
 import bs4
 import re
 import requests
+import csv
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
+BASE_URL = 'http://138.197.184.35/boliga/'
+
+out_dir = './data/out'
+if not os.path.exists(out_dir):
+    os.mkdir(out_dir)
 
 
 def connect_and_retrieve_boliga_atags(url):
     # Sending a request to the specified URL:
     r = requests.get(url)
+
     # Make sure we get notified in case of a bad request:
     if r is None:
         r.raise_for_status()
+
     # Save the content from the Response Object:
     soup = bs4.BeautifulSoup(r.text, 'html5lib')
+
     # Isolating all the a-tags to scrape:
     a_tags = soup.find_all('a')
+
     return a_tags
 
 
 # Returning the hrefs alone, filtered (must start with a number if it's a zip code):
-def sort_hrefs(tags):
+def filter_hrefs(tags):
     hrefs = []
     for a in tags:
         url = a.get('href')
@@ -28,47 +42,6 @@ def sort_hrefs(tags):
             continue
     return hrefs
 
-
-def run():
-    tags = connect_and_retrieve_boliga_atags('http://138.197.184.35/boliga/')
-    urls = sort_hrefs(tags)
-    print(urls[:20])
-
-
-if __name__ == '__main__':
-    run()
-
-    
-    
-    
-    import bs4
-import requests
-import csv
-import re
-
-base_url = 'http://138.197.184.35/boliga/'
-r = requests.get(base_url)
-r.raise_for_status()
-soup = bs4.BeautifulSoup(r.text, 'html5lib')
-
-a_elems = soup.select('a')
-
-# Returning the hrefs alone, filtered (must start with a number if it's a zip code):
-def sort_hrefs(tags):
-    hrefs = []
-    for a in tags:
-        url = a.get('href')
-        match_obj = re.match('.*([.,/])html$', url)
-        if match_obj:
-            hrefs.append(url)
-        else:
-            continue
-    return hrefs
-
-a_filtered = sort_hrefs(a_elems)
-    
-print(len(a_elems))
-print(len(a_filtered))
 
 def scrape_housing_data(url):
     data = []
@@ -76,57 +49,84 @@ def scrape_housing_data(url):
     sup = bs4.BeautifulSoup(s.content.decode('utf-8'), 'html5lib')
     table = sup.find('table')
     tBody = table.find('tbody')
-    
+
     rows = tBody.find_all('tr')
     for row in rows:
         cols = row.find_all('td')
-        
+
         # Decode address column
         address_str = cols[0].text.strip()
-        #street_str = ' '.join(address_str.split(' ')[:-3])
-        #city_str = ' '.join(address_str.split(' ')[-3:])
-        #zip_number = int(address_str.split(' ')[-3])
+        zip_number = str(get_num(address_str))[-4:]
 
         # Decode price
         price = cols[1].text.strip()
-        #price = float(price_str)
-        
+        split_price = price.split('.')
+        join_price = ''.join(split_price)
+        price = int(join_price)
+
         # Decode sales date and type
         string = cols[2].text.strip()
-        sell_date = ' '.join(string.split(' ')[:-1])
-        sell_type = ' '.join(string.split(' ')[-1:])
-        
+        array = re.split(r'([A-Za-z\s.]+)', string)
+        sell_date = array[0]
+        sell_type = array[1]
+
         # Decode price per squere meter
         size_in_sq_m_str = cols[3].text.strip()
-        price_per_sq_m = float(size_in_sq_m_str)
-        
+        sq_price_split = size_in_sq_m_str.split('.')
+        price_per_sq_m = ''.join(sq_price_split)
+
         # Decode number of rooms
         no_rooms_str = cols[4].text.strip()
-        no_rooms = int(no_rooms_str)
-        
+        no_rooms = no_rooms_str
+
         # Decode type of housing
         housing_type = cols[5].text.strip()
-        
+
         # Decode room size
         room_size = cols[6].text.strip()
-        size_in_sq_m = int(room_size)
-        
+        size_in_sq_m = room_size
+
+
         # Decode year of construction
         year_of_construction_str = cols[7].text.strip()
-        year_of_construction = int(year_of_construction_str)
-        
+        year_of_construction = year_of_construction_str
+
         # Decode price change
         price_change_in_pct = cols[8].text.strip()
-        #price_change_in_pct = int(price_change_in_pct_str)
-        
-        decoded_row = (address_str, price, sell_date, sell_type, price_per_sq_m,
-                      no_rooms, housing_type, size_in_sq_m, year_of_construction, price_change_in_pct)
+        # price_change_in_pct = int(price_change_in_pct_str)
+
+        decoded_row = (address_str, zip_number, price, sell_date, sell_type, price_per_sq_m,
+                       no_rooms, housing_type, size_in_sq_m, year_of_construction, price_change_in_pct)
         data.append(decoded_row)
-        
-    print('Scraped {} sales...'.format(len(data)))
-    
+        # pp.pprint(data)
+
     return data
 
-base_url = 'http://138.197.184.35/boliga/1050-1549_1.html' 
-housing_data = scrape_housing_data(base_url)
-housing_data[:3]
+
+def save_to_csv(data, path='/boliga.csv'):
+    with open(path, 'w', encoding='utf-8') as output_file:
+        output_writer = csv.writer(output_file)
+        output_writer.writerow(['address_str', 'zip_number', 'price',
+                                'sell_date', 'sell_type',
+                                'price_per_sq_m', 'no_rooms',
+                                'housing_type', 'size_in_sq_m', 'year_of_construction', 'price_change_in_pct'])
+
+        for row in data:
+            output_writer.writerow(row)
+
+
+def get_num(x):
+    return int(''.join(ele for ele in x if ele.isdigit()))
+
+
+def run():
+    tags = connect_and_retrieve_boliga_atags(BASE_URL)
+    urls_endings = filter_hrefs(tags)
+    for url in urls_endings:
+        housing_data = scrape_housing_data(BASE_URL + url)
+        save_to_file = os.path.join(out_dir, url.split('_')[1] + '.csv')
+        save_to_csv(housing_data, save_to_file)
+
+
+if __name__ == '__main__':
+    run()
