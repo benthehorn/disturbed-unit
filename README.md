@@ -10,10 +10,13 @@
      > There are 1,288,720 sales records in total.
 2. Provide some more statistics, with the help of Bash commands.
 
-   > Sadly we couldn't do this.
+   > Sadly we couldn't do all of this.
    - For which zip code area do you have the most sales records?
+   - 2300
      1. How many sales records?
+     - 436
      1. How big is the corresponding CSV file in kilobytes?
+     - 45kb
    - For which zip code area do you have the fewest sales records?
      1. How many sales records?
      1. How big is the corresponding CSV file in megabytes?
