@@ -1,5 +1,25 @@
-# Decode sales date and type
-        string = cols[2].text.strip()
-        array = re.split(r'([A-Za-z\s.]+)', string)
-        sell_date = array[0]
-        sell_type = array[1]
+def save_to_csv(data, path='./out/boliga.csv'):
+    
+    with open(path, 'w', encoding='utf-8') as output_file:
+        output_writer = csv.writer(output_file)
+        output_writer.writerow(['address_str', 'zip_number', 'price', 
+                                'sell_date', 'sell_type', 
+                                'price_per_sq_m', 'no_rooms', 
+                                'housing_type', 'size_in_sq_m', 'year_of_construction', 'price_change_in_pct'])
+
+        for row in data:
+            output_writer.writerow(row)
+            
+out_dir = './data/out'
+if not os.path.exists(out_dir):
+    os.mkdir(out_dir)
+    
+base_url = 'http://138.197.184.35/boliga/' 
+urls = ['1050-1549_1.html']
+urls = [os.path.join(base_url, url) for url in urls]
+
+housing_data = scrape_housing_data(urls[0])
+
+save_to_file = os.path.join(out_dir, os.path.basename(urls[0]).split('_')[1] + '.csv')
+save_to_csv(housing_data, save_to_file)
+print('done')
