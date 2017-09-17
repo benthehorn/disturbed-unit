@@ -1,0 +1,61 @@
+import bs4
+import csv
+import re
+from urllib.request import urlopen
+
+Url = 'http://138.197.184.35/boliga'
+FullUrl = 'http://138.197.184.35/boliga/1050-1549_1.html'
+Page = urlopen(Url)
+Page1 = urlopen(FullUrl)
+
+# we can use this to write each csv file, by changing some of the parameters..I think
+def save_to_csv(data, path='./out/boliga.csv'):
+    with open(path, 'w', encoding='utf-8') as output_file:
+        output_writer = csv.writer(output_file)
+        output_writer.writerow(['address', 'zip_code', 'price', 'sell_date', 'sell_type',
+                                'price_per_sq_m', 'no_rooms', 'housing_type', 'size_in_sq_m',
+                                'year_of_construction', 'price_change_in_pct'])
+
+        for row in data:
+            output_writer.writerow(row)
+
+
+# URLendings = [];
+# soup = bs4.BeautifulSoup(Page, "html5lib")
+# table = soup.find_all("a")
+#
+# for t in table:
+#     URLendings.append(t.get('href'))
+#     num = len(URLendings)
+#     print(t.get('href'))
+#     print(num)
+
+Info = [];
+soup1 = bs4.BeautifulSoup(Page1, "html5lib")
+table1 = soup1.find("table")
+body = table1.find('tbody')
+rows = body.find_all('tr')
+
+for row in rows:
+    cols = row.find_all('td')
+    # Decode address column
+    address_str = cols[0].text.strip()
+    street_str = ' '.join(address_str.split(' ')[:-2])
+    numbers = (address_str.split(' ')[-2])
+    house_number = numbers[:-4]
+    zip_number = numbers[-4:]
+    city_str = ' '.join(address_str.split(' ')[-1:])
+    address = street_str + ' ' + house_number
+    splitted = re.findall('\d{4,}', address_str)
+    splitstring = str(splitted)
+
+    print(splitted)
+
+    print(zip)
+
+
+# for d in data1:
+#     h = d.find('h5')
+#     Info.append(h)
+#     print(Info)
+
