@@ -19,4 +19,4 @@
      1. How big is the corresponding CSV file in megabytes?
 
 ## Section Two (How-to):
-Simply run the app.py file, and wait a couple of hours for the data to be generated.
+> Simply run the app.py file, and wait a couple of hours for the data to be generated.
