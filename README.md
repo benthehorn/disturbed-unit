@@ -18,8 +18,11 @@
      1. How big is the corresponding CSV file in kilobytes?
      - 45kb
    - For which zip code area do you have the fewest sales records?
+   - 1875
      1. How many sales records?
+     - 1
      1. How big is the corresponding CSV file in megabytes?
+     - 0.001MB
 
 ## Section Two (How-to):
 > Simply run the app.py file, and wait a couple of hours for the data to be generated.
