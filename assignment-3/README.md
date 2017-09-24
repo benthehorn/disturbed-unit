@@ -1,4 +1,4 @@
-# Assignment 1 for Business Intelligence
+# Assignment 3 for Business Intelligence
 #### By Disturbed Unit
 
 2. Convert all sales dates in the dataset into proper `datetime` objects.
