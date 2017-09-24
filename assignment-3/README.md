@@ -42,3 +42,7 @@ f.head()
 
 
 * Compute the average price per square meter for the years 1992 and 2016 respectively for the city centers of Copenhagen (zip code 1050-1049), Odense (zip code 5000), Aarhus (zip code 8000), and Aalborg (zip code 9000). Create two new `DataFrame`s, one for the year 1992 and one for the year 2016, which contain the respective zip codes and the average price per square meter corresponding to the aforementioned cities. Let the `DataFrame`s be sorted by ascending prices.
+
+Using some of the example code from the lecture notes I started to experimient with trying to get the data needed to calulate the average prices per sq. metre. Again, the fact that we have not formatted the data properly makes this impossible.
+
+But the averageprice.py file takes the csv as a dataframe, and then splits it into new frames based on post code. Then we can further reduce the dataframe by year, at which point we would get all the prices, convert them from string to float, and calulate the average prices for each dataframe. Once we get our data in order we should be able to complete this step.
