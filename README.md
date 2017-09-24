@@ -1,6 +1,7 @@
 # Assignment 3 for Business Intelligence
 #### By Disturbed Unit
 # Getting Started.
+All files refered to are in the assignment-3 directory.
 The osm file with all the address data in is huge, so we used osmconvert64 to trim some of the un_needed data.
 This method was posted by one of the other members of class who was also finding that the process was stopping, due to memory leakage.
 We install add the binaries to our Git/mingw64/bin directory, and run the following from the directory of the .osm file:
@@ -72,3 +73,23 @@ København_K_1992.to_csv("København_K_1992.csv", index=False)
 
 print('done')
 ```
+ * Use the following function, which computes the Haversine Distance (https://en.wikipedia.org/wiki/Haversine_formula) to compute an array of distances (`distances`) for each for each location in the dataset of Danish housing sales data to the city center of Roskilde (lat=55.65, lon=12.083333).
+
+  ```python
+  def haversine_distance(origin, destination):
+
+      lat_orig, lon_orig = origin
+      lat_dest, lon_dest = destination
+      radius = 6371
+
+      dlat = math.radians(lat_dest-lat_orig)
+      dlon = math.radians(lon_dest-lon_orig)
+      a = (math.sin(dlat / 2) * math.sin(dlat / 2) + math.cos(math.radians(lat_orig)) 
+          * math.cos(math.radians(lat_dest)) * math.sin(dlon / 2) * math.sin(dlon / 2))
+      c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+      d = radius * c
+
+      return d
+  ```
+  In the haversine.py file I have made an example of this using the coordinates in the lecture notes, so that we can see how it works.
+  We will make the graph work..
