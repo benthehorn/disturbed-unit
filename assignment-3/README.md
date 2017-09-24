@@ -48,3 +48,27 @@ Using some of the example code from the lecture notes I started to experimient w
 But the averageprice.py file takes the csv as a dataframe, and then splits it into new frames based on post code. Then we can further reduce the dataframe by year, at which point we would get all the prices, convert them from string to float, and calulate the average prices for each dataframe. Once we get our data in order we should be able to complete this step.
 
 * Create, with the help of the `pandas` module, four new CSV files containing the sales data for the year 1992 for the city centers of Copenhagen (zip code 1050-1049), Odense (zip code 5000), Aarhus (zip code 8000), and Aalborg (zip code 9000).
+```
+import pandas as pd
+import re
+
+#read csv file
+df = pd.read_csv('newFile.csv')
+
+# parse sell_date to date time format
+df['sell_date'] = pd.to_datetime(df['sell_date'])
+
+#fetch data by criteria
+Aarhus_1992 = df[(df['zip_code'] == '8000 Aarhus C') & (df['sell_date'].dt.year == 1992)]
+alborg_1992 = df[(df['zip_code'] == '9000 Aalborg') & (df['sell_date'].dt.year == 1992)]
+Odense_1992 = df[(df['zip_code'] == '5000 Odense C') & (df['sell_date'].dt.year == 1992)] 
+København_K_1992 = df['zip_code'].str.contains('København K') & (df['sell_date'].dt.year == 1992) 
+
+# save new files with filtered data
+Aarhus_1992.to_csv("Aarhus_1992.csv", index=False)
+alborg_1992.to_csv("alborg_1992.csv", index=False)
+Odense_1992.to_csv("Odense_1992.csv", index=False)
+København_K_1992.to_csv("København_K_1992.csv", index=False)
+
+print('done')
+```
