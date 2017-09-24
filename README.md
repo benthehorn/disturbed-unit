@@ -2,6 +2,7 @@
 #### By Disturbed Unit
 # Getting Started.
 All files refered to are in the assignment-3 directory.
+
 The osm file with all the address data in is huge, so we used osmconvert64 to trim some of the un_needed data.
 This method was posted by one of the other members of class who was also finding that the process was stopping, due to memory leakage.
 We install add the binaries to our Git/mingw64/bin directory, and run the following from the directory of the .osm file:
