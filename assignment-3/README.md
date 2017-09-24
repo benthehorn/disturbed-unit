@@ -23,7 +23,7 @@ At the time of writing, we are scraping the data again, but time has run out, ag
   
 
 
-2. Convert all sales dates in the dataset into proper `datetime` objects.
+ * Convert all sales dates in the dataset into proper `datetime` objects.
 ```
 import pandas as pd
 
@@ -39,3 +39,6 @@ df.to_csv("newFile.csv", index=False)
 f = pd.read_csv("newFile.csv")
 f.head()
 ```
+
+
+* Compute the average price per square meter for the years 1992 and 2016 respectively for the city centers of Copenhagen (zip code 1050-1049), Odense (zip code 5000), Aarhus (zip code 8000), and Aalborg (zip code 9000). Create two new `DataFrame`s, one for the year 1992 and one for the year 2016, which contain the respective zip codes and the average price per square meter corresponding to the aforementioned cities. Let the `DataFrame`s be sorted by ascending prices.
