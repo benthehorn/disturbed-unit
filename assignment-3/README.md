@@ -9,6 +9,11 @@ We install add the binaries to our Git/mingw64/bin directory, and run the follow
 
 This command writes a new file, but removes the <way> and <relation> elements, and the file is now approximately 1GB smaller.
 We next used the XMLBreaker script from https://gist.github.com/nicwolff/b4da6ec84ba9c23c8e59 that slpits the file into more manageable chunks. After this we had no more crashes, and the data converted to csv format without incident!
+ 
+ 1. Read the entire dataset of Danish housing sales data, see Assignment 2, into a Pandas `DataFrame`. Use the `read_csv` function from the `pandas` module.
+
+
+  * Geocode the the entire dataset of Danish housing sales data, see Assignment 2. Add two new columns to the `DataFrame`, one for latitude (`lat`) and one for longitude (`lon`) coordinates per address. Do the geocoding with help of the OSM dataset stored in a file as discussed in class. Save that `DataFrame` to a CSV file with the help of pandas
   
 The code we used to then add the GeoData to the csv file we got can be found in the file addGeoCode.py. This part of the process follows the examples from the lecture_notes, with a few modifications.
 
@@ -18,7 +23,7 @@ At the time of writing, we are scraping the data again, but time has run out, ag
   
 
 
-2. Convert all sales dates in the dataset into proper `datetime` objects.
+ * Convert all sales dates in the dataset into proper `datetime` objects.
 ```
 import pandas as pd
 
@@ -34,3 +39,10 @@ df.to_csv("newFile.csv", index=False)
 f = pd.read_csv("newFile.csv")
 f.head()
 ```
+
+
+* Compute the average price per square meter for the years 1992 and 2016 respectively for the city centers of Copenhagen (zip code 1050-1049), Odense (zip code 5000), Aarhus (zip code 8000), and Aalborg (zip code 9000). Create two new `DataFrame`s, one for the year 1992 and one for the year 2016, which contain the respective zip codes and the average price per square meter corresponding to the aforementioned cities. Let the `DataFrame`s be sorted by ascending prices.
+
+Using some of the example code from the lecture notes I started to experimient with trying to get the data needed to calulate the average prices per sq. metre. Again, the fact that we have not formatted the data properly makes this impossible.
+
+But the averageprice.py file takes the csv as a dataframe, and then splits it into new frames based on post code. Then we can further reduce the dataframe by year, at which point we would get all the prices, convert them from string to float, and calulate the average prices for each dataframe. Once we get our data in order we should be able to complete this step.
