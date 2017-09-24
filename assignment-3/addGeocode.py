@@ -18,18 +18,18 @@ def decode_node_to_csv(filename):
             yield entry
 
 def addGeocode(sale_data_frame):
-
-    focusFrame = sale_data_frame
-    focusFrame['lat'] = np.nan
-    focusFrame['lon'] = np.nan
+    progress_bar = tqdm()
+    focus_frame = sale_data_frame
+    focus_frame['lat'] = np.nan
+    focus_frame['lon'] = np.nan
 
     df.setupDataFrameCsv()
 
-    dataFrame = ConcatAddandZip(focusFrame)
+    data_frame = concat_and_zip(focus_frame)
 
-    dataFrame.set_index("api_addresses", inplace=True)
+    data_frame.set_index("api_addresses", inplace=True)
 
-    pbar = tqdm()
+
 
     for file in os.listdir('/data/osm/'):
         if not file.endswith('xml'): continue
@@ -41,31 +41,31 @@ def addGeocode(sale_data_frame):
 
                 write_to_csv(addr_with_geo, "data/addresses1.csv")
 
-                pbar.update()
+                progress_bar.update()
 
-                geolocate_dataframe(focusFrame, addr_with_geo)
+                geolocate_dataframe(focus_frame, addr_with_geo)
 
             except (KeyError, ValueError):
                 pass
-        print('Finished with: ' + file)
+        print('Done: ' + file)
 
-    df.write_df_ToCsv(focusFrame, "data/sales_with_geocode.csv")
+    df.write_df_ToCsv(focus_frame, "data/sales_with_geocode.csv")
 
 
 
-def ConcatAddandZip(dFrame):
+def concat_and_zip(d_frame):
     api_addresses = [' '.join([a.split(',')[0], z]) for a, z in dFrame[[('address').replace("\"", ""), 'zip_code']].values]
-    dFrame = dFrame.assign(api_addresses=api_addresses)
-    dFrame = dFrame.drop_duplicates(subset="api_addresses")
+    d_frame = d_frame.assign(api_addresses=api_addresses)
+    d_frame = d_frame.drop_duplicates(subset="api_addresses")
 
-    return dFrame
+    return d_frame
 
 
-def geolocate_dataframe(dataframe, addr_with_geo):
+def geolocate_dataframe(data_frame, geo_add):
 
-    if dataframe.loc[addr_with_geo[0]] is not None:
-        dataframe.set_value(addr_with_geo[0],'lon',addr_with_geo[1])
-        dataframe.set_value(addr_with_geo[0],'lat',addr_with_geo[2])
+    if data_frame.loc[geo_add[0]] is not None:
+        data_frame.set_value(geo_add[0],'lon',geo_add[1])
+        data_frame.set_value(geo_add[0],'lat',geo_add[2])
 
 
 def write_to_csv(string, output_path):
