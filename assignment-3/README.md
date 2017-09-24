@@ -46,3 +46,5 @@ f.head()
 Using some of the example code from the lecture notes I started to experimient with trying to get the data needed to calulate the average prices per sq. metre. Again, the fact that we have not formatted the data properly makes this impossible.
 
 But the averageprice.py file takes the csv as a dataframe, and then splits it into new frames based on post code. Then we can further reduce the dataframe by year, at which point we would get all the prices, convert them from string to float, and calulate the average prices for each dataframe. Once we get our data in order we should be able to complete this step.
+
+* Create, with the help of the `pandas` module, four new CSV files containing the sales data for the year 1992 for the city centers of Copenhagen (zip code 1050-1049), Odense (zip code 5000), Aarhus (zip code 8000), and Aalborg (zip code 9000).
