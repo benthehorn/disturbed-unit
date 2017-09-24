@@ -9,6 +9,11 @@ We install add the binaries to our Git/mingw64/bin directory, and run the follow
 
 This command writes a new file, but removes the <way> and <relation> elements, and the file is now approximately 1GB smaller.
 We next used the XMLBreaker script from https://gist.github.com/nicwolff/b4da6ec84ba9c23c8e59 that slpits the file into more manageable chunks. After this we had no more crashes, and the data converted to csv format without incident!
+ 
+ 1. Read the entire dataset of Danish housing sales data, see Assignment 2, into a Pandas `DataFrame`. Use the `read_csv` function from the `pandas` module.
+
+
+  * Geocode the the entire dataset of Danish housing sales data, see Assignment 2. Add two new columns to the `DataFrame`, one for latitude (`lat`) and one for longitude (`lon`) coordinates per address. Do the geocoding with help of the OSM dataset stored in a file as discussed in class. Save that `DataFrame` to a CSV file with the help of pandas
   
 The code we used to then add the GeoData to the csv file we got can be found in the file addGeoCode.py. This part of the process follows the examples from the lecture_notes, with a few modifications.
 
