@@ -32,5 +32,7 @@ Bar
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/room_numbers_histogram.png)
 
 ### Task 6:
+Created with:
+https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/3d_histogram.py
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/3d_histogram.png)
 ### Task 7:
