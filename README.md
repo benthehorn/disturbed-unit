@@ -11,7 +11,14 @@ but it still looks strange!
 
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/2d_plot_norreport.png)
 ### Task 4:
+The two plots below are drawn using the same data. But, the bar plot seems to not show nearly all the data. The normal plot gives a better
+representation, for some reason.
+
+Plot
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/sales_by_zip.png)
+
+Bar
+![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/by_zip_bar.png)
 ### Task 5:
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/room_numbers_histogram.png)
 
