@@ -23,5 +23,5 @@ Bar
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/room_numbers_histogram.png)
 
 ### Task 6:
-
+![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/3d_histogram.png)
 ### Task 7:
