@@ -46,8 +46,8 @@ def frequency_of_house_trades(data):
 
         for room_amount in num_rooms_variance:
             occurences = len(zip_df[zip_df['no_rooms'] == room_amount])
-            if occurences > 0:
-                rooms_dict[room_amount] = occurences
+            #if occurences > 0:
+            rooms_dict[room_amount] = occurences
 
         sales_by_zip[zip] = rooms_dict
 
@@ -74,7 +74,7 @@ def plot_on_histogram(data):
     rooms_col = np.asarray(rooms_col)
     bins = len(rooms_col)
 
-    n, bins, patches = plt.hist(rooms_col, bins, cumulative=True, histtype='bar', stacked=True, normed=1)
+    n, bins, patches = plt.hist(rooms_col, bins, cumulative=True, normed=1, histtype='bar', stacked=True)
 
     fig.savefig('room_numbers_histogram.png')
 
