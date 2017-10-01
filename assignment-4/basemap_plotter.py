@@ -1,3 +1,5 @@
+import warnings
+warnings.filterwarnings('ignore')
 from mpl_toolkits.basemap import Basemap
 import pandas as pd
 import matplotlib.pyplot as plt
