@@ -22,6 +22,8 @@ The two plots below are drawn using the same data. But, the bar plot seems to no
 representation, for some reason.
 
 Plot
+Created with:
+https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/sales_frequency_by_zip.py
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/sales_by_zip.png)
 
 Bar
