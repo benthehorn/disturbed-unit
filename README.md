@@ -21,9 +21,11 @@ The plot as it is seems to be upside down. It should create a graph showing that
 The two plots below are drawn using the same data. But, the bar plot seems to not show nearly all the data. The normal plot gives a better
 representation, for some reason.
 
-Plot
+
 Created with:
 https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/sales_frequency_by_zip.py
+
+Plot
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/sales_by_zip.png)
 
 Bar
