@@ -38,12 +38,12 @@ for d in data_set[['lat', 'lon', 'price_per_sq_m']].values:
     y.append(d[2])
     x.append(haversine_distance(norreport, (d[0],d[1])))
 
-
+#can use [::-1] to reverse sort the y values, but it still looks wrong..
 y.sort()
 x.sort()
 
 plt.plot(x,y)
 plt.ylabel('Price per sqm')
 plt.xlabel('Kms to Norreport')
-
+plt.gca().invert_yaxis()
 plt.show()
