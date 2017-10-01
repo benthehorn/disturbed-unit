@@ -6,6 +6,12 @@ https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment
 
 ![](https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/plot_50_km_2015.png)
 ### Task 2:
+Created with:
+https://github.com/semester-groupies/disturbed-unit/blob/assignment-4/assignment-4/1992_sales.py
+
+The sales from 1992 in mentioned cities and zip codes where saved in csv files where from assignment 3.
+First i created folium map with coordinates of Dnemark area. Then all 4 sales records are saved into data frames.
+After that data frames are concatinated into one data frame. Then i create an plot and save it into folium map and save it as html file. FOr referance i saved a screenshot of this map. Could not find a solution to add it into MD file. To see the actual results with sales data you need to download the html file and open it in browser.
 
 ### Task 3:
 Created with:
