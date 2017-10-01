@@ -11,7 +11,7 @@ needed = df[['zip_code', 'sell_date', 'price_per_sq_m', 'lat', 'lon']]
 needed['zip_number'] = [int((el.split(' ')[0])) for el in df['zip_code'].values]
 needed['sell_year'] = [int(el.split('-')[-1]) for el in df['sell_date'].values]
 data_set = needed[(needed['zip_number'] <= 3000) & (needed['sell_year'] == 15) & (needed['price_per_sq_m'] <= 80000)]
-print(data_set.info())
+
 
 def haversine_distance(origin, destination):
 
@@ -34,7 +34,7 @@ y = []
 for d in data_set[['lat', 'lon', 'price_per_sq_m']].values:
 
 
-    print(haversine_distance(norreport, (d[0],d[1])),d[2] )
+
     y.append(d[2])
     x.append(haversine_distance(norreport, (d[0],d[1])))
 
