@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9dd55be8-d4b3-497c-a946-f5ae26af1b2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assignment-8/brain_size.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assignment-8/cancerData.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb" afterPath="$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,31 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Assignment+8+DU.ipynb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Assignment+8+DU.ipynb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cancerData.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment-8/cancerData.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="brain_size.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assignment-8/brain_size.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <selected id="11" />
             </state>
           </provider>
         </entry>
@@ -74,12 +52,13 @@
         <option value="$PROJECT_DIR$/assignment-4/2d_plot_norreport.py" />
         <option value="$PROJECT_DIR$/studentTester/tester.py" />
         <option value="$PROJECT_DIR$/studentTester/student_tester.py" />
+        <option value="$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-20" />
-    <option name="y" value="66" />
+    <option name="x" value="1243" />
+    <option name="y" value="4" />
     <option name="width" value="1296" />
     <option name="height" value="1000" />
   </component>
@@ -98,6 +77,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -116,16 +96,10 @@
               <item name="disturbed-unit" type="462c0819:PsiDirectoryNode" />
               <item name="assignment-8" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="disturbed-unit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="disturbed-unit" type="462c0819:PsiDirectoryNode" />
-              <item name="studentTester" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,10 +256,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="1272" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29288027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0776699" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42329872" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -544,20 +518,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/studentTester/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/studentTester/student_tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="1004" column="0" lean-forward="false" selection-start-line="1004" selection-start-column="0" selection-end-line="1004" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/studentTester/tester.py" />
+    <entry file="file://$PROJECT_DIR$/studentTester/student_tester.py" />
     <entry file="file://$PROJECT_DIR$/assignment-7/BIassignment7.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -579,18 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment-8/cancerData.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -598,7 +552,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment-8/Assignment+8+DU.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="11" />
         </state>
       </provider>
     </entry>
